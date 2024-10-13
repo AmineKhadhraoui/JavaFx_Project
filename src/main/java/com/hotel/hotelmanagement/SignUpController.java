@@ -124,7 +124,7 @@ public class SignUpController implements Initializable {
         }
         return gender;
     }
-
+//
     private void OptionPane(String message, String title) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.initStyle(StageStyle.UTILITY);
