@@ -1,8 +1,8 @@
 1)The first thing you have to do is to open your xampp control panel
 then turn on APACHE and MYSQL then navigate to Mysql Admin and create a new database called 
-"hotel_management" and import the sql file that you'll find the repository.
+"hotel_management" and import the sql file that you'll find in the repository.
 
-2)next step is to download the javafx jdk "javafx-sdk-17.0.12"
+2)next step is to download the javafx sdk "javafx-sdk-17.0.12"
 and also the jfoenix "9.0.10" jar 
 
 3)What you have to do next is to include them in the project structure 
