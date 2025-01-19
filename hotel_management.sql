@@ -39,8 +39,9 @@ CREATE TABLE `bills` (
 --
 
 INSERT INTO `bills` (`billID`, `reservationID`, `billDate`, `billAmount`) VALUES
-(1, 2, '2021-12-12', 33000),
-(2, 5, '2021-12-14', 19500);
+(1, 2, '2025-01-12', 33000),
+(2, 5, '2025-01-14', 19500);
+
 
 -- --------------------------------------------------------
 
@@ -50,7 +51,7 @@ INSERT INTO `bills` (`billID`, `reservationID`, `billDate`, `billAmount`) VALUES
 
 CREATE TABLE `customers` (
   `customerIDNumber` int(50) NOT NULL,
-  `customerName` varchar(50) NOT NULL,
+  `customerName` varchar(50) NOT NULL, 
   `customerNationality` varchar(20) NOT NULL,
   `customerGender` varchar(10) NOT NULL,
   `customerPhoneNo` int(50) NOT NULL,
@@ -88,11 +89,11 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`reservationID`, `customerIDNumber`, `roomNumber`, `checkInDate`, `checkOutDate`, `status`) VALUES
-(1, 422510092, '100', '2021-12-01', '2021-12-14', 'Checked In'),
-(2, 255100992, '303', '2021-12-01', '2021-12-12', 'Checked Out'),
-(3, 355184941, '202', '2021-12-01', '2021-12-13', 'Checked In'),
-(4, 2510092, '102', '2021-12-10', '2021-12-13', 'Checked In'),
-(5, 9348957, '701', '2021-12-01', '2021-12-14', 'Checked Out');
+(1, 422510092, '100', '2025-01-01', '2025-01-14', 'Checked In'),
+(2, 255100992, '303', '2025-01-01', '2025-01-12', 'Checked Out'),
+(3, 355184941, '202', '2025-01-01', '2025-01-13', 'Checked In'),
+(4, 2510092, '102', '2025-01-10', '2025-01-13', 'Checked In'),
+(5, 9348957, '701', '2025-01-01', '2025-01-14', 'Checked Out');
 
 -- --------------------------------------------------------
 
@@ -153,9 +154,45 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `gender`, `securityQu
 (1, 'Duc', 'minhduc1122002', 'Duc2002lol@', 'Male', 'What is the name of your first pet?', 'Jeff', 'Ha Noi', NULL),
 (2, 'Khanh', 'khanh0140', 'iamironman3', 'Male', 'What is the name of the town where you were born?', 'Ha Noi', 'Ha Noi', NULL);
 
+
+-- Add a table for staff
+CREATE TABLE `staff` (
+  `staffID` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `age` INT NOT NULL,
+  `position` VARCHAR(50) NOT NULL,
+  `gender` VARCHAR(10) NOT NULL,
+  `phone` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(100),
+  PRIMARY KEY (`staffID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Add a table for events
+CREATE TABLE `events` (
+  `eventID` INT NOT NULL AUTO_INCREMENT,
+  `eventName` VARCHAR(100) NOT NULL,
+  `eventDate` DATE NOT NULL,
+  `eventDescription` TEXT,
+  PRIMARY KEY (`eventID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 --
 -- Indexes for dumped tables
 --
+-- Insert data for the staff table
+INSERT INTO `staff` (`name`, `age`, `position`, `gender`, `phone`, `email`) VALUES
+('Alice Johnson', 32, 'Receptionist', 'Female', '1234567890', 'alice.johnson@hotel.com'),
+('Bob Smith', 45, 'Manager', 'Male', '0987654321', 'bob.smith@hotel.com'),
+('Clara Davis', 28, 'Chef', 'Female', '1122334455', 'clara.davis@hotel.com');
+
+-- Insert data for the events table
+INSERT INTO `events` (`eventName`, `eventDate`, `eventDescription`) 
+VALUES 
+('Annual Tech Conference', '2025-03-15', 'A conference to discuss the latest advancements in technology.'),
+('Team Building Workshop', '2025-04-10', 'A workshop focused on enhancing teamwork and collaboration.'),
+('Product Launch', '2025-05-25', 'Launching the newest product in the market.'),
+('Charity Gala', '2025-06-05', 'An event organized to raise funds for local charities.');
 
 --
 -- Indexes for table `bills`
